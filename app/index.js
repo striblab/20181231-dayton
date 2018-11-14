@@ -1,22 +1,58 @@
 /**
  * Main JS file for project.
  */
- 
-// Define globals that are added through the config.json file, here like this:
+
+// Define globals that are added through the js.globals in
+// the config.json file, here, mostly so linting won't get triggered
+// and its a good queue of what is available:
 // /* global _ */
-'use strict';
 
 // Dependencies
-import utilsFn from './utils.js';
+import utils from './shared/utils.js';
 
-// Import local ES6 modules like this:
-//import utilsFn from './utils.js';
+// Mark page with note about development or staging
+utils.environmentNoting();
 
+
+
+// Adding dependencies
+// ---------------------------------
+// Import local ES6 or CommonJS modules like this:
+// import utilsFn from './shared/utils.js';
+//
 // Or import libraries installed with npm like this:
 // import module from 'module';
 
-// Setup utils function
-utilsFn({});
+// Adding Svelte templates in the client
+// ---------------------------------
+// We can bring in the same Svelte templates that we use
+// to render the HTML into the client for interactivity.  The key
+// part is that we need to have similar data.
+//
+// First, import the template.  This is the main one, and will
+// include any other templates used in the project.
+// import Content from '../templates/_index-content.svelte.html';
+//
+// Get the data parts that are needed.  There are two ways to do this.
+// If you are using the buildData function to get data, then ?
+//
+// 1. For smaller datasets, just import them like other files.
+// import content from '../assets/data/content.json';
+//
+// 2. For larger data points, utilize window.fetch.
+// let content = await (await window.fetch('../assets/data/content.json')).json();
+//
+// Once you have your data, use it like a Svelte component:
+//
+// const app = new Content({
+//   target: document.querySelector('.article-lcd-body-content'),
+//   data: {
+//     content
+//   }
+// });
+
+import * as d3 from 'd3';
+import * as c3 from 'c3';
 
 $.urlParam = function(name) {
     var results = new RegExp('[\?&]' + name + '=([^&#]*)').exec(window.location.href);
@@ -59,7 +95,7 @@ function chartIncome() {
             type: 'line',
             labels: {
                 format: {
-                    // 'Rate': d3.format(',.1f')
+                    // 'Rate': d3.format(',.1')
                 }
             }
         },
@@ -86,7 +122,7 @@ function chartIncome() {
                 tick: {
                     count: 6,
                     values: [0, 20000, 40000, 60000, 80000],
-                    format: d3.format('$,.0f')
+                    format: d3.format('$,.0')
                 }
             },
             x: {
@@ -154,7 +190,7 @@ function chartTaxes() {
             type: 'line',
             labels: {
                 format: {
-                    // 'Rate': d3.format(',.1f')
+                    // 'Rate': d3.format(',.1')
                 }
             }
         },
@@ -180,7 +216,7 @@ function chartTaxes() {
                 tick: {
                     count: 6,
                     values: [0, 1000, 2000, 3000, 4000],
-                    format: d3.format('$,.0f')
+                    format: d3.format('$,.0')
                 }
             },
             x: {
@@ -242,7 +278,7 @@ function chartUnemployment() {
             type: 'line',
             labels: {
                 format: {
-                    // 'Rate': d3.format(',.1f')
+                    // 'Rate': d3.format(',.1')
                 }
             }
         },
@@ -268,7 +304,7 @@ function chartUnemployment() {
                 tick: {
                     count: 6,
                     values: [0, 2, 4, 6, 8, 10],
-                    format: d3.format(',.1f')
+                    format: d3.format(',.1')
                 }
             },
             x: {
@@ -336,7 +372,7 @@ function chartHousing() {
             type: 'line',
             labels: {
                 format: {
-                    // 'Rate': d3.format(',.1f')
+                    // 'Rate': d3.format(',.1')
                 }
             }
         },
@@ -362,7 +398,7 @@ function chartHousing() {
                 tick: {
                     count: 6,
                     values: [0, 0.25, 0.50, 0.75, 1],
-                    format: d3.format('%,.0f')
+                    format: d3.format('.0%')
                 }
             },
             x: {
@@ -430,7 +466,7 @@ function chartJobs() {
             type: 'line',
             labels: {
                 format: {
-                    // 'Rate': d3.format(',.1f')
+                    // 'Rate': d3.format(',.1')
                 }
             }
         },
@@ -524,7 +560,7 @@ function chartHealthCare() {
             type: 'line',
             labels: {
                 format: {
-                    // 'Rate': d3.format(',.1f')
+                    // 'Rate': d3.format(',.1')
                 }
             }
         },
@@ -619,7 +655,7 @@ function chartCollege() {
             type: 'line',
             labels: {
                 format: {
-                    // 'Rate': d3.format(',.1f')
+                    // 'Rate': d3.format(',.1')
                 }
             }
         },
@@ -645,7 +681,7 @@ function chartCollege() {
                 tick: {
                     count: 6,
                     values: [0, 3000, 6000, 9000, 12000, 15000],
-                    format: d3.format('$,.0f')
+                    format: d3.format('$,.0')
                 }
             },
             x: {
@@ -707,7 +743,7 @@ function chartDebt() {
             type: 'line',
             labels: {
                 format: {
-                    // 'Rate': d3.format(',.1f')
+                    // 'Rate': d3.format(',.1')
                 }
             }
         },
@@ -798,7 +834,7 @@ function chartTestScores() {
             type: 'line',
             labels: {
                 format: {
-                    // 'Rate': d3.format(',.1f')
+                    // 'Rate': d3.format(',.1')
                 }
             }
         },
@@ -824,7 +860,7 @@ function chartTestScores() {
                 tick: {
                     count: 6,
                     values: [0, 0.25, 0.50, 0.75, 1],
-                    format: d3.format('%.0f')
+                    format: d3.format('.0%')
                 }
             },
             x: {
@@ -888,7 +924,7 @@ function chartBudget() {
             type: 'line',
             labels: {
                 format: {
-                    // 'Rate': d3.format(',.1f')
+                    // 'Rate': d3.format(',.1')
                 }
             }
         },
@@ -914,7 +950,7 @@ function chartBudget() {
                 tick: {
                     count: 6,
                     values: [0, 25, 50],
-                    format: d3.format(',.1f')
+                    format: d3.format(',.1')
                 }
             },
             x: {
@@ -976,7 +1012,7 @@ function chartCommute() {
             type: 'line',
             labels: {
                 format: {
-                    // 'Rate': d3.format(',.1f')
+                    // 'Rate': d3.format(',.1')
                 }
             }
         },
@@ -1005,7 +1041,7 @@ function chartCommute() {
                 tick: {
                     count: 6,
                     values: [0, 0.25, 0.50, 0.75, 1],
-                    format: d3.format('%.0f')
+                    format: d3.format('.0%')
                 }
             },
             x: {
@@ -1066,7 +1102,7 @@ function chartPavement() {
             type: 'line',
             labels: {
                 format: {
-                    // 'Rate': d3.format(',.1f')
+                    // 'Rate': d3.format(',.1')
                 }
             }
         },
@@ -1095,7 +1131,7 @@ function chartPavement() {
                 tick: {
                     count: 6,
                     values: [0, 0.05, 0.10, 0.15, 0.20],
-                    format: d3.format('%.1f')
+                    format: d3.format('.1%')
                 }
             },
             x: {
@@ -1136,9 +1172,9 @@ chartPavement();
 
 
 
-    $(".topbar .gop").width($(".c3-region.gop:first rect").width() - 5);
-    $(".topbar .ind").width($(".c3-region.ind:first rect").width() - 2);
-    $(".topbar .dfl").width($(".c3-region.dfl:first rect").width() - 5);
+    // $(".topbar .gop").width($(".c3-region.gop:first rect").width() - 5);
+    // $(".topbar .ind").width($(".c3-region.ind:first rect").width() - 2);
+    // $(".topbar .dfl").width($(".c3-region.dfl:first rect").width() - 5);
 
 // $( window ).resize(function() {
 //     console.log($(".c3-region.ind:first rect").width());
