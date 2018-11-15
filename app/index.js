@@ -1172,9 +1172,9 @@ chartPavement();
 
 
 
-    // $(".topbar .gop").width($(".c3-region.gop:first rect").width() - 5);
-    // $(".topbar .ind").width($(".c3-region.ind:first rect").width() - 2);
-    // $(".topbar .dfl").width($(".c3-region.dfl:first rect").width() - 5);
+// $(".topbar .gop").width($(".c3-region.gop:first rect").width() - 5);
+// $(".topbar .ind").width($(".c3-region.ind:first rect").width() - 2);
+// $(".topbar .dfl").width($(".c3-region.dfl:first rect").width() - 5);
 
 // $( window ).resize(function() {
 //     console.log($(".c3-region.ind:first rect").width());
