@@ -1082,7 +1082,7 @@ function chartEdSpend() {
 chartEdSpend();
 
 //INFRASTRUCTURE
-//commute time
+//congestion miles
 function chartCommute() {
     var padding = {
         top: 0,
@@ -1189,7 +1189,7 @@ function chartPavement() {
             // xFormat: '%Y-%m-%d %H:%M:%S',
             columns: [
                 ['x', 1999, 2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018],
-                ['Poor Condition', null,null,null,null,null,0.037,0.037,0.037,0.044,0.046,0.068,0.051,0.065,0.054,0.047,0.035,null,null,0.029,null]            
+                ['Poor Condition', null,null,null,0.68,0.601666667,0.597333333,0.629666667,0.653666667,0.634,0.636,0.605,0.674,0.649666667,0.675666667,0.695666667,0.713333333,0.707333333,0.727666667,0.737333333,null]            
                 ],
             type: 'line',
             labels: {
@@ -1214,7 +1214,7 @@ function chartPavement() {
         axis: {
             // rotated: true,
             y: {
-                max: 0.20,
+                max: 1,
                 min: 0,
                 padding: {
                     bottom: 0,
@@ -1222,8 +1222,8 @@ function chartPavement() {
                 },
                 tick: {
                     count: 6,
-                    values: [0, 0.05, 0.10, 0.15, 0.20],
-                    format: d3.format('.1%')
+                    values: [0, 0.25, 0.50, 0.75, 1],
+                    format: d3.format('.0%')
                 }
             },
             x: {
@@ -1263,6 +1263,191 @@ function chartPavement() {
 chartPavement();
 
 
+//bridge quality
+function chartBridges() {
+    var padding = {
+        top: 0,
+        right: 40,
+        bottom: 20,
+        left: 60,
+    };
+
+    var chartTrend = c3.generate({
+        bindto: "#chartBridges",
+        padding: padding,
+        data: {
+            x: 'x',
+            // xFormat: '%Y-%m-%d %H:%M:%S',
+            columns: [
+                ['x', 1999, 2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018],
+                ['Traffic', null,0.1,0.077,0.08,0.08,0.07,0.07,0.067,0.056,0.053,0.059,0.046,0.041,0.043,0.046,0.032,0.022,0.012,0,null]            
+                ],
+            type: 'line',
+            labels: {
+                format: {
+                    // 'Rate': d3.format(',.1')
+                }
+            }
+        },
+        legend: {
+            show: false
+        },
+       line: {
+             connectNull: true
+         },
+        point: {
+            show: true,
+            r: function(d) { if (d.x == 2017) { return 6;} else { return 2.5; } }
+        },
+        color: {
+            pattern: ['#333333','#CCCCCC']
+        },
+        axis: {
+            // rotated: true,
+            y: {
+                max: 0.10,
+                min: 0,
+                padding: {
+                    bottom: 0,
+                    top: 0
+                },
+                tick: {
+                    count: 6,
+                    values: [0, 0.02, 0.04, 0.06, 0.08, 0.1],
+                    format: d3.format('.0%')
+                }
+            },
+            x: {
+                // type: 'timeseries',
+                padding: {
+                    right: 0,
+                    left: 0
+                },
+                tick: {
+                    count: 4,
+                    values: [1999, 2003, 2011, 2018],
+                    multiline: false,
+                }
+            }
+        },
+         regions: [
+          {axis: 'x', start: 1999, end: 2003, class: 'ind'},
+          {axis: 'x', start: 2003, end: 2011, class: 'gop'},
+          {axis: 'x', start: 2011, end: 2018, class: 'dfl'},
+        ],
+      tooltip: {
+        contents: function(d, defaultTitleFormat, defaultValueFormat, color) {
+          return '<div class="chart-tooltip">' +
+            '<span class="tooltip-label">' + d[0].x + ':</span>' +
+            '<span class="tooltip-value">' + defaultValueFormat(d[0].value) + '</span>' +
+            '</div>';
+        }
+      },
+      grid:  {
+           focus:{
+                show:false
+            },
+            x: {
+                lines: [
+                    {value: 2007, text: 'I-35W Bridge Collapse', position: 'start', class: 'grayline'}
+                ]
+        }
+      }
+    });
+}
+
+chartBridges();
+
+
+//bridge quality
+function chartInternet() {
+    var padding = {
+        top: 0,
+        right: 40,
+        bottom: 20,
+        left: 60,
+    };
+
+    var chartTrend = c3.generate({
+        bindto: "#chartInternet",
+        padding: padding,
+        data: {
+            x: 'x',
+            // xFormat: '%Y-%m-%d %H:%M:%S',
+            columns: [
+                ['x', 1999, 2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018],
+                ['Access', null,null,null,null,null,null,null,null,null,null,null,null,0.6964,0.7056,0.8203,0.841,0.8583,0.8772,0.8794,null]            
+                ],
+            type: 'line',
+            labels: {
+                format: {
+                    // 'Rate': d3.format(',.1')
+                }
+            }
+        },
+        legend: {
+            show: false
+        },
+       line: {
+             connectNull: true
+         },
+        point: {
+            show: true,
+            r: function(d) { if (d.x == 2017) { return 6;} else { return 2.5; } }
+        },
+        color: {
+            pattern: ['#333333','#CCCCCC']
+        },
+        axis: {
+            // rotated: true,
+            y: {
+                max: 1,
+                min: 0,
+                padding: {
+                    bottom: 0,
+                    top: 0
+                },
+                tick: {
+                    count: 6,
+                    values: [0, 0.25, 0.50, 0.75, 1],
+                    format: d3.format('.0%')
+                }
+            },
+            x: {
+                // type: 'timeseries',
+                padding: {
+                    right: 0,
+                    left: 0
+                },
+                tick: {
+                    count: 4,
+                    values: [1999, 2003, 2011, 2018],
+                    multiline: false,
+                }
+            }
+        },
+         regions: [
+          {axis: 'x', start: 1999, end: 2003, class: 'ind'},
+          {axis: 'x', start: 2003, end: 2011, class: 'gop'},
+          {axis: 'x', start: 2011, end: 2018, class: 'dfl'},
+        ],
+      tooltip: {
+        contents: function(d, defaultTitleFormat, defaultValueFormat, color) {
+          return '<div class="chart-tooltip">' +
+            '<span class="tooltip-label">' + d[0].x + ':</span>' +
+            '<span class="tooltip-value">' + defaultValueFormat(d[0].value) + '</span>' +
+            '</div>';
+        }
+      },
+      grid:  {
+           focus:{
+                show:false
+            }
+      }
+    });
+}
+
+chartInternet();
 
 // $(".topbar .gop").width($(".c3-region.gop:first rect").width() - 5);
 // $(".topbar .ind").width($(".c3-region.ind:first rect").width() - 2);
