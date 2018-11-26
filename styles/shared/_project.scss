@@ -74,6 +74,69 @@ h2 {
   }
   
   .slide {
+    width:48%;
+    display:inline-block;
+    vertical-align: top;
+
+  .chart {
+      height:250px;
+  }
+
+  .chatter {
+      height:70px;
+      line-height:140%;
+      font-size:0.8em;
+  }
+  
+  .chartTitle {
+      font-size:1.5em;
+      font-weight:900;
+  } 
+    
+  .ind {
+      fill: #fee090 !important;
+      color: #fee090 !important;
+      border-bottom: 3px solid #fee090 !important;
+    //   width:160px;
+  }
+
+  .gop {
+      fill: #a70518 !important;
+      color: #a70518 !important;
+      border-bottom: 3px solid #a70518 !important;
+    //   width:317px;
+  }
+
+  .dfl {
+      fill: #3580A3 !important;
+      color: #3580A3 !important;
+      border-bottom: 3px solid #3580A3 !important;
+    //   width:195px;
+  }
+
+  .topbar .ind {
+    width:60px;
+  }
+
+  .topbar .gop {
+    width:115px;
+  }
+
+  .topbar .dfl {
+    width:102px;
+  }
+
+  .topbar {
+      margin-left:60px;
+     margin-top:30px;
+      width:100%;
+      font-size:0.8em;
+  }
+
+  .topbar div {
+    display:inline-block;
+  }
+
   #chartTrend .c3-line {
       opacity:0 !important;
   }
@@ -129,7 +192,7 @@ h2 {
   .red5 {
     color:#ffffff;
   }
-  
+
   .chart .c3-line {
       stroke-width: 6px !important;
   }
@@ -154,59 +217,6 @@ h2 {
       border-radius: 5px;
       padding: 0 7px;
       margin-bottom: 3px;
-      display:inline-block;
-  }
-  
-  .ind {
-      fill: #fee090 !important;
-      color: #fee090 !important;
-      border-bottom: 3px solid #fee090 !important;
-    //   width:160px;
-  }
-  
-  .gop {
-      fill: #a70518 !important;
-      color: #a70518 !important;
-      border-bottom: 3px solid #a70518 !important;
-    //   width:317px;
-  }
-  
-  .dfl {
-      fill: #3580A3 !important;
-      color: #3580A3 !important;
-      border-bottom: 3px solid #3580A3 !important;
-    //   width:195px;
-  }
-
-.topbar .ind {
-    width:148px;
-}
-
-.topbar .gop {
-    width:290px;
-}
-
-.topbar .dfl {
-    width:255px;
-}
-  
-.topbar {
-      margin-left:60px;
-    margin-top:30px;
-      width:100%;
-  }
-  
-  .topbar div {
-    display:inline-block;
-  }
-  
-  .chatter {
-      line-height:140%;
-  }
-  
-  .chartTitle {
-      font-size:1.5em;
-      font-weight:900;
   }
   
   .map {
