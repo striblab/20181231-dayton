@@ -83,9 +83,9 @@ h2 {
   }
 
   .chatter {
-      height:70px;
       line-height:140%;
       font-size:0.8em;
+      text-align:center;
   }
   
   .chartTitle {
@@ -183,6 +183,7 @@ h2 {
       padding-top:10px;
       padding-bottom:10px;
       text-align:left;
+      display:none;
   }
   
   .districtName {
