@@ -1029,7 +1029,17 @@ h2 {
 }
 
 @media (max-width:600px) {
+  .topbar .ind {
+    width:63px !important;
+  }
 
+  .topbar .gop {
+    width:122px !important;
+  }
+
+  .topbar .dfl {
+    width:108px !important;
+  }
 
 }
 

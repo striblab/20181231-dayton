@@ -1544,9 +1544,281 @@ function chartInternet() {
 
 chartInternet();
 
-// $(".topbar .gop").width($(".c3-region.gop:first rect").width() - 5);
-// $(".topbar .ind").width($(".c3-region.ind:first rect").width() - 2);
-// $(".topbar .dfl").width($(".c3-region.dfl:first rect").width() - 5);
+//statewide crime
+function chartCrime() {
+    var padding = {
+        top: 0,
+        right: 40,
+        bottom: 20,
+        left: 60,
+    };
+
+    var chartCrime = c3.generate({
+        bindto: "#chartCrime",
+        padding: padding,
+        data: {
+            x: 'x',
+            // xFormat: '%Y-%m-%d %H:%M:%S',
+            columns: [
+                ['x', 1999,2000,2001,2002,2003,2004,2005,2006,2007,2008,2009,2010,2011,2012,2013,2014,2015,2016,2017,2018],
+                ['Rate', 3627.005,3632.7,3584.058,3570.646,3439.754,3351.699,3410.34,3366.448,3256.584,3104.8,2894,2797,2757.4,2775.1,2668.9,2531.4,2466.2,2372.1,null,null],
+            ],
+            axes: {
+                'Rate': 'y',
+                'Overall': 'y2'
+            },
+            type: 'line',
+            labels: {
+                format: {
+                    // 'Rate': d3.format(',.1f')
+                }
+            }
+        },
+        legend: {
+            show: false
+        },
+        point: {
+            show: true,
+            r: function(d) { if (d.x == 2016) { return 6;} else { return 2.5; } }
+        },
+        color: {
+            pattern: ["#333333"]
+        },
+        axis: {
+            // rotated: true,
+            y: {
+                max: 4000,
+                min: 0,
+                padding: {
+                    bottom: 0,
+                    top: 0
+                },
+                tick: {
+                    count: 6,
+                    values: [0, 1000, 2000, 3000, 4000],
+                    format: d3.format(',.0f')
+                }
+            },
+            x: {
+                // type: 'timeseries',
+                padding: {
+                    right: 0,
+                    left: 0
+                },
+                tick: {
+                    count: 4,
+                    values: [1999, 2003, 2011, 2018],
+                    multiline: false,
+                }
+            }
+        },
+        grid: {
+            focus:{
+                show:false
+              },
+          },
+          regions: [
+           {axis: 'x', start: 1999, end: 2003, class: 'ind'},
+           {axis: 'x', start: 2003, end: 2011, class: 'gop'},
+           {axis: 'x', start: 2011, end: 2018, class: 'dfl'},
+         ],
+      tooltip: {
+        contents: function(d, defaultTitleFormat, defaultValueFormat, color) {
+          return '<div class="chart-tooltip gray5">' +
+            '<span class="tooltip-label">' + d[0].x + ':</span>' +
+            '<span class="tooltip-value">' + defaultValueFormat(d[0].value) + '</span>' +
+            '</div>';
+        }
+      }
+    });
+}
+
+chartCrime();
+
+//minneapolis violent crime
+function chartMPLS() {
+    var padding = {
+        top: 0,
+        right: 40,
+        bottom: 20,
+        left: 60,
+    };
+
+    var chartMPLS = c3.generate({
+        bindto: "#chartMPLS",
+        padding: padding,
+        data: {
+            x: 'x',
+            // xFormat: '%Y-%m-%d %H:%M:%S',
+            columns: [
+                ['x', 1999,2000,2001,2002,2003,2004,2005,2006,2007,2008,2009,2010,2011,2012,2013,2014,2015,2016,2017,2018],
+                ['Rate', null,1173.755547,1082.244291,1097.98798,1201.689795,1261.767782,1437.152931,1671.520994,1458.945415,1253.168807,1116.653866,1063.051195,945.6703612,1036.365731,1021.105508,1008.81896,1084.803778,1104.650055,1077.504096,null],
+            ],
+            axes: {
+                'Rate': 'y',
+                'Overall': 'y2'
+            },
+            type: 'line',
+            labels: {
+                format: {
+                    // 'Rate': d3.format(',.1f')
+                }
+            }
+        },
+        legend: {
+            show: false
+        },
+        point: {
+            show: true,
+            r: function(d) { if (d.x == 2017) { return 6;} else { return 2.5; } }
+        },
+        color: {
+            pattern: ["#333333"]
+        },
+        axis: {
+            // rotated: true,
+            y: {
+                max: 2000,
+                min: 0,
+                padding: {
+                    bottom: 0,
+                    top: 0
+                },
+                tick: {
+                    count: 6,
+                    values: [0, 500, 1000, 1500, 2000],
+                    format: d3.format(',.0f')
+                }
+            },
+            x: {
+                // type: 'timeseries',
+                padding: {
+                    right: 0,
+                    left: 0
+                },
+                tick: {
+                    count: 4,
+                    values: [1999, 2003, 2011, 2018],
+                    multiline: false,
+                }
+            }
+        },
+        grid: {
+            focus:{
+                show:false
+              },
+          },
+          regions: [
+           {axis: 'x', start: 1999, end: 2003, class: 'ind'},
+           {axis: 'x', start: 2003, end: 2011, class: 'gop'},
+           {axis: 'x', start: 2011, end: 2018, class: 'dfl'},
+         ],
+      tooltip: {
+        contents: function(d, defaultTitleFormat, defaultValueFormat, color) {
+          return '<div class="chart-tooltip gray5">' +
+            '<span class="tooltip-label">' + d[0].x + ':</span>' +
+            '<span class="tooltip-value">' + defaultValueFormat(d[0].value) + '</span>' +
+            '</div>';
+        }
+      }
+    });
+}
+
+chartMPLS();
+
+//police shootings
+function chartShot() {
+    var padding = {
+        top: 0,
+        right: 40,
+        bottom: 20,
+        left: 60,
+    };
+
+    var chartShot = c3.generate({
+        bindto: "#chartShot",
+        padding: padding,
+        data: {
+            x: 'x',
+            // xFormat: '%Y-%m-%d %H:%M:%S',
+            columns: [
+                ['x', 1999,2000,2001,2002,2003,2004,2005,2006,2007,2008,2009,2010,2011,2012,2013,2014,2015,2016,2017,2018],
+                ['Rate', null,7,9,8,7,9,5,6,7,8,11,12,8,11,11,9,13,13,10,null],
+            ],
+            axes: {
+                'Rate': 'y',
+                'Overall': 'y2'
+            },
+            type: 'line',
+            labels: {
+                format: {
+                    // 'Rate': d3.format(',.1f')
+                }
+            }
+        },
+        legend: {
+            show: false
+        },
+        point: {
+            show: true,
+            r: function(d) { if (d.x == 2017) { return 6;} else { return 2.5; } }
+        },
+        color: {
+            pattern: ["#333333"]
+        },
+        axis: {
+            // rotated: true,
+            y: {
+                max: 20,
+                min: 0,
+                padding: {
+                    bottom: 0,
+                    top: 0
+                },
+                tick: {
+                    count: 6,
+                    values: [0, 5, 10, 15, 20],
+                    format: d3.format(',.0f')
+                }
+            },
+            x: {
+                // type: 'timeseries',
+                padding: {
+                    right: 0,
+                    left: 0
+                },
+                tick: {
+                    count: 4,
+                    values: [1999, 2003, 2011, 2018],
+                    multiline: false,
+                }
+            }
+        },
+        grid: {
+            focus:{
+                show:false
+              },
+          },
+          regions: [
+           {axis: 'x', start: 1999, end: 2003, class: 'ind'},
+           {axis: 'x', start: 2003, end: 2011, class: 'gop'},
+           {axis: 'x', start: 2011, end: 2018, class: 'dfl'},
+         ],
+      tooltip: {
+        contents: function(d, defaultTitleFormat, defaultValueFormat, color) {
+          return '<div class="chart-tooltip gray5">' +
+            '<span class="tooltip-label">' + d[0].x + ':</span>' +
+            '<span class="tooltip-value">' + defaultValueFormat(d[0].value) + '</span>' +
+            '</div>';
+        }
+      }
+    });
+}
+
+chartShot();
+$(".topbar .gop").width($(".c3-region.gop:first rect").width());
+$(".topbar .ind").width($(".c3-region.ind:first rect").width());
+$(".topbar .dfl").width($(".c3-region.dfl:first rect").width());
 
 // $( window ).resize(function() {
 //     console.log($(".c3-region.ind:first rect").width());
