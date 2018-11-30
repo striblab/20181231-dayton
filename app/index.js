@@ -1743,11 +1743,10 @@ function chartShot() {
             // xFormat: '%Y-%m-%d %H:%M:%S',
             columns: [
                 ['x', 1999,2000,2001,2002,2003,2004,2005,2006,2007,2008,2009,2010,2011,2012,2013,2014,2015,2016,2017,2018],
-                ['Rate', null,7,9,8,7,9,5,6,7,8,11,12,8,11,11,9,13,13,10,null],
+                ['Rate', null,7,9,8,7,9,5,6,7,8,11,12,8,11,11,9,13,13,10,13],
             ],
             axes: {
-                'Rate': 'y',
-                'Overall': 'y2'
+                'Rate': 'y'
             },
             type: 'line',
             labels: {
@@ -1761,7 +1760,7 @@ function chartShot() {
         },
         point: {
             show: true,
-            r: function(d) { if (d.x == 2017) { return 6;} else { return 2.5; } }
+            r: function(d) { if (d.x == 2018) { return 6;} else { return 2.5; } }
         },
         color: {
             pattern: ["#333333"]
