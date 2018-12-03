@@ -92,6 +92,12 @@ h2 {
       font-size:1.5em;
       font-weight:900;
   } 
+
+  .uparrow, .downarrow, .sidearrow {
+    font-weight:900;
+    font-size:1.2em;
+    font-family: Consolas,"courier new" !important;
+  }
     
   .ind {
       fill: #fee090 !important;
