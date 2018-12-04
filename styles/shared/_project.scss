@@ -66,6 +66,21 @@ h2 {
     margin-bottom:40px;
     padding-bottom:40px;
 }
+div .byline {
+  line-height:140%;
+  font-family: "Benton Sans", Helvetica, Arial, sans-serif;
+  font-weight: 400;
+  font-size:0.6em;
+  color: #888;
+  padding-top:10px;
+  padding-bottom:10px;
+  text-align:left;
+}
+
+div .byline a {
+    color: #888 !important;
+}
+
 
   #wrapper {
       width:800px;
@@ -159,10 +174,6 @@ h2 {
       stroke-width: 4;
   }
   
-  .byline a {
-      color: #888 !important;
-  }
-  
   .row {
     line-height:140%;
   }
@@ -178,18 +189,6 @@ h2 {
   
   .tooltip {
     width:180px !important;
-  }
-  
-  .byline {
-      line-height:140%;
-      font-family: "Benton Sans", Helvetica, Arial, sans-serif;
-      font-weight: 400;
-      font-size:0.6em;
-      color: #888;
-      padding-top:10px;
-      padding-bottom:10px;
-      text-align:left;
-      display:none;
   }
   
   .districtName {
