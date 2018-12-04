@@ -816,6 +816,199 @@ function chartInsurance() {
 
 chartInsurance();
 
+//health factors
+function chartFactors() {
+    var padding = {
+        top: 0,
+        right: 40,
+        bottom: 20,
+        left: 60,
+    };
+
+    var chartFactors = c3.generate({
+        bindto: "#chartFactors",
+        padding: padding,
+        data: {
+            x: 'x',
+            // xFormat: '%Y-%m-%d %H:%M:%S',
+            columns: [
+                ['x', 1999, 2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018],
+                ["Diabetes",0.056,0.061,0.065,0.065,0.071,0.07,0.073,0.075,0.08,0.083,0.083,0.087,0.095,0.097,0.097,0.1,0.099,0.105,null,null],
+                ["Obesity",0.196,0.2,0.209,0.219,0.229,0.232,0.244,0.251,0.263,0.267,0.269,0.275,0.278,0.276,0.294,0.296,0.298,0.301,null,null]
+            ],
+            type: 'line',
+            labels: {
+                format: {
+                    // 'Rate': d3.format(',.1')
+                }
+            }
+        },
+        legend: {
+            show: false
+        },
+       line: {
+             connectNull: true
+         },
+        point: {
+            show: true,
+            r: function(d) { if (d.x == 2016) { return 6;} else { return 2.5; } }
+        },
+        color: {
+            pattern: ['#333333',"#cccccc"]
+        },
+        axis: {
+            // rotated: true,
+            y: {
+                max: 1,
+                min: 0,
+                padding: {
+                    bottom: 0,
+                    top: 0
+                },
+                tick: {
+                    count: 6,
+                    values: [0, 0.25, 0.50, 0.75, 1],
+                    format: d3.format('.0%')
+                }
+            },
+            x: {
+                // type: 'timeseries',
+                padding: {
+                    right: 0,
+                    left: 0
+                },
+                tick: {
+                    count: 4,
+                    values: [1999, 2003, 2011, 2018],
+                    multiline: false,
+                }
+            }
+        },
+         regions: [
+          {axis: 'x', start: 1999, end: 2003, class: 'ind'},
+          {axis: 'x', start: 2003, end: 2011, class: 'gop'},
+          {axis: 'x', start: 2011, end: 2018, class: 'dfl'},
+        ],
+        tooltip: {
+            contents: function(d, defaultTitleFormat, defaultValueFormat, color) {
+              return '<div class="chart-tooltip"><div>' + d[0].x + '</div></div>' + '<div class="chart-tooltip gray3">' + '<span class="tooltip-label">' + d[1].id + ':</span>' +
+                '<span class="tooltip-value">' + defaultValueFormat(d[1].value) + '</span>' +
+                '</div><div class="chart-tooltip gray5">' +
+                '<span class="tooltip-label">' + d[0].id + ':</span>' +
+                '<span class="tooltip-value">' + defaultValueFormat(d[0].value) + '</span>' +
+                '</div>';
+            }
+          },
+        grid: {
+            focus:{
+                show:false
+            },
+        x: {
+            lines: [
+                {value: '2010', text: 'Affordable Care Act', position: 'start', class: 'grayline'}
+            ]
+        }
+     }
+    });
+}
+
+chartFactors();
+
+//health spending
+function chartMental() {
+    var padding = {
+        top: 0,
+        right: 40,
+        bottom: 20,
+        left: 60,
+    };
+
+    var chartMental = c3.generate({
+        bindto: "#chartMental",
+        padding: padding,
+        data: {
+            x: 'x',
+            // xFormat: '%Y-%m-%d %H:%M:%S',
+            columns: [
+                ['x', 1999, 2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018],
+                ['Public',null,6.1,6.7,7,7.1,7.4,7.4,7.5,7.3,7.7,8,7.9,7.7,7.9,7.7,7.6,7,null,null,null]
+            ],
+            type: 'line',
+            labels: {
+                format: {
+                    // 'Rate': d3.format(',.1')
+                }
+            }
+        },
+        legend: {
+            show: false
+        },
+       line: {
+             connectNull: true
+         },
+        point: {
+            show: true,
+            r: function(d) { if (d.x == 2015) { return 6;} else { return 2.5; } }
+        },
+        color: {
+            pattern: ['#333333']
+        },
+        axis: {
+            // rotated: true,
+            y: {
+                max: 20,
+                min: 0,
+                padding: {
+                    bottom: 0,
+                    top: 0
+                },
+                tick: {
+                    count: 6,
+                    values: [0, 5, 10, 15, 20],
+                    format: d3.format(',.0')
+                }
+            },
+            x: {
+                // type: 'timeseries',
+                padding: {
+                    right: 0,
+                    left: 0
+                },
+                tick: {
+                    count: 4,
+                    values: [1999, 2003, 2011, 2018],
+                    multiline: false,
+                }
+            }
+        },
+         regions: [
+          {axis: 'x', start: 1999, end: 2003, class: 'ind'},
+          {axis: 'x', start: 2003, end: 2011, class: 'gop'},
+          {axis: 'x', start: 2011, end: 2018, class: 'dfl'},
+        ],
+      tooltip: {
+        contents: function(d, defaultTitleFormat, defaultValueFormat, color) {
+          return '<div class="chart-tooltip">' +
+            '<span class="tooltip-label">' + d[0].x + ':</span>' +
+            '<span class="tooltip-value">' + defaultValueFormat(d[0].value) + '</span>' +
+            '</div>';
+        }
+      },
+        grid: {
+            focus:{
+                show:false
+            },
+        x: {
+            lines: [
+                {value: '2010', text: 'Affordable Care Act', position: 'start', class: 'grayline'}
+            ]
+        }
+     }
+    });
+}
+
+chartMental();
+
 //EDUCATION
 //college tuition chart
 function chartCollege() {
