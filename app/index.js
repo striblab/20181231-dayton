@@ -914,7 +914,7 @@ function chartFactors() {
 
 chartFactors();
 
-//health spending
+//mental health admissions
 function chartMental() {
     var padding = {
         top: 0,
@@ -1186,6 +1186,187 @@ function chartDebt() {
 }
 
 chartDebt();
+
+
+//college enrollment chart
+function chartUEnroll() {
+    var padding = {
+        top: 0,
+        right: 40,
+        bottom: 20,
+        left: 60,
+    };
+
+    var chartUEnroll = c3.generate({
+        bindto: "#chartUEnroll",
+        padding: padding,
+        data: {
+            x: 'x',
+            // xFormat: '%Y-%m-%d %H:%M:%S',
+            columns: [
+                ['x', 1999,2000,2001,2002,2003,2004,2005,2006,2007,2008,2009,2010,2011,2012,2013,2014,2015,2016,2017,2018],
+                ['Rate', null,null,46597,48677,49474,50954,51175,50402,50883,51140,51659,51721,52557,51853,51526,51147,50678,51580,51848,null]
+            ],
+            type: 'line',
+            labels: {
+                format: {
+                    // 'Rate': d3.format(',.1')
+                }
+            }
+        },
+       line: {
+             connectNull: true
+         },
+        legend: {
+            show: false
+        },
+        point: {
+            show: true,
+            r: function(d) { if (d.x == 2017) { return 6;} else { return 2.5; } }
+        },
+        color: {
+            pattern: ['#333333']
+        },
+        axis: {
+            // rotated: true,
+            y: {
+                max: 80000,
+                min: 0,
+                padding: {
+                    bottom: 0,
+                    top: 0
+                },
+                tick: {
+                    count: 6,
+                    values: [0, 20000, 40000, 60000, 80000],
+                    format: d3.format(',.0')
+                }
+            },
+            x: {
+                // type: 'timeseries',
+                padding: {
+                    right: 0,
+                    left: 0
+                },
+                tick: {
+                    count: 4,
+                    values: [1999, 2003, 2011, 2018],
+                    multiline: false,
+                }
+            }
+        },
+         regions: [
+          {axis: 'x', start: 1999, end: 2003, class: 'ind'},
+          {axis: 'x', start: 2003, end: 2011, class: 'gop'},
+          {axis: 'x', start: 2011, end: 2018, class: 'dfl'},
+        ],
+      tooltip: {
+        contents: function(d, defaultTitleFormat, defaultValueFormat, color) {
+          return '<div class="chart-tooltip">' +
+            '<span class="tooltip-label">' + d[0].x + ':</span>' +
+            '<span class="tooltip-value">' + defaultValueFormat(d[0].value) + '</span>' +
+            '</div>';
+        }
+      },
+      grid: {
+            focus:{
+                show:false
+            }
+      }
+    });
+}
+
+chartUEnroll();
+
+//college graduation rate
+function chartUGrad() {
+    var padding = {
+        top: 0,
+        right: 40,
+        bottom: 20,
+        left: 60,
+    };
+
+    var chartUGrad = c3.generate({
+        bindto: "#chartUGrad",
+        padding: padding,
+        data: {
+            x: 'x',
+            // xFormat: '%Y-%m-%d %H:%M:%S',
+            columns: [
+                ['x', 1999,2000,2001,2002,2003,2004,2005,2006,2007,2008,2009,2010,2011,2012,2013,2014,2015,2016,2017,2018],
+                ['Rate', 0.321,0.323,null,null,null,null,0.29,0.3,0.33,0.36,0.39,0.4,0.41,0.44,0.47,0.51,0.52,0.51,null,null]
+            ],
+            type: 'line',
+            labels: {
+                format: {
+                    // 'Rate': d3.format(',.1')
+                }
+            }
+        },
+       line: {
+             connectNull: true
+         },
+        legend: {
+            show: false
+        },
+        point: {
+            show: true,
+            r: function(d) { if (d.x == 2016) { return 6;} else { return 2.5; } }
+        },
+        color: {
+            pattern: ['#333333']
+        },
+        axis: {
+            // rotated: true,
+            y: {
+                max: 1,
+                min: 0,
+                padding: {
+                    bottom: 0,
+                    top: 0
+                },
+                tick: {
+                    count: 6,
+                    values: [0, 0.25, 0.50, 0.75, 1],
+                    format: d3.format('.0%')
+                }
+            },
+            x: {
+                // type: 'timeseries',
+                padding: {
+                    right: 0,
+                    left: 0
+                },
+                tick: {
+                    count: 4,
+                    values: [1999, 2003, 2011, 2018],
+                    multiline: false,
+                }
+            }
+        },
+         regions: [
+          {axis: 'x', start: 1999, end: 2003, class: 'ind'},
+          {axis: 'x', start: 2003, end: 2011, class: 'gop'},
+          {axis: 'x', start: 2011, end: 2018, class: 'dfl'},
+        ],
+      tooltip: {
+        contents: function(d, defaultTitleFormat, defaultValueFormat, color) {
+          return '<div class="chart-tooltip">' +
+            '<span class="tooltip-label">' + d[0].x + ':</span>' +
+            '<span class="tooltip-value">' + defaultValueFormat(d[0].value) + '</span>' +
+            '</div>';
+        }
+      },
+      grid: {
+            focus:{
+                show:false
+            }
+      }
+    });
+}
+
+chartUGrad();
 
 //test scores chart
 function chartTestScores() {
