@@ -965,7 +965,7 @@ function chartMental() {
                 tick: {
                     count: 6,
                     values: [0, 5, 10, 15, 20],
-                    format: d3.format(',.0')
+                    format: d3.format('.0')
                 }
             },
             x: {
@@ -2455,6 +2455,96 @@ function chartShot() {
 }
 
 chartShot();
+
+
+function chartC02() {
+    var padding = {
+        top: 0,
+        right: 40,
+        bottom: 20,
+        left: 60,
+    };
+
+    var chartC02 = c3.generate({
+        bindto: "#chartC02",
+        padding: padding,
+        data: {
+            x: 'x',
+            // xFormat: '%Y-%m-%d %H:%M:%S',
+            columns: [
+                ['x', 1999,2000,2001,2002,2003,2004,2005,2006,2007,2008,2009,2010,2011,2012,2013,2014,2015,2016,2017,2018],
+                ['Rate', 157306408,163795410,162639083,165067648,166124746,165148696,164751215,161968038,165579634,166824331,157992083,159875825,158455919,null,158193368,158323838,null,null,null,null]
+            ],
+            type: 'line',
+            labels: {
+                format: {
+                    // 'Rate': d3.format(',.1')
+                }
+            }
+        },
+       line: {
+             connectNull: true
+         },
+        legend: {
+            show: false
+        },
+        point: {
+            show: true,
+            r: function(d) { if (d.x == 2014) { return 6;} else { return 2.5; } }
+        },
+        color: {
+            pattern: ['#333333']
+        },
+        axis: {
+            // rotated: true,
+            y: {
+                max: 200000000,
+                min: 0,
+                padding: {
+                    bottom: 0,
+                    top: 0
+                },
+                tick: {
+                    count: 6,
+                    values: [0, 50000000, 100000000, 150000000, 200000000],
+                    format: d3.format(',.3s')
+                }
+            },
+            x: {
+                // type: 'timeseries',
+                padding: {
+                    right: 0,
+                    left: 0
+                },
+                tick: {
+                    count: 4,
+                    values: [1999, 2003, 2011, 2018],
+                    multiline: false,
+                }
+            }
+        },
+         regions: [
+          {axis: 'x', start: 1999, end: 2003, class: 'ind'},
+          {axis: 'x', start: 2003, end: 2011, class: 'gop'},
+          {axis: 'x', start: 2011, end: 2018, class: 'dfl'},
+        ],
+      tooltip: {
+        contents: function(d, defaultTitleFormat, defaultValueFormat, color) {
+          return '<div class="chart-tooltip">' +
+            '<span class="tooltip-label">' + d[0].x + ':</span>' +
+            '<span class="tooltip-value">' + defaultValueFormat(d[0].value) + '</span>' +
+            '</div>';
+        }
+      },
+      grid: {
+            focus:{
+                show:false
+            }
+      }
+    });
+}
+
+chartC02();
 
 $(".topbar .gop").width($(".c3-region.gop:first rect").width());
 $(".topbar .ind").width($(".c3-region.ind:first rect").width());
