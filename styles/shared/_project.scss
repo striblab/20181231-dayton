@@ -81,20 +81,77 @@ div .byline a {
     color: #888 !important;
 }
 
+.ind {
+  fill: #fee090 !important;
+  color: #fee090 !important;
+  border-bottom: 3px solid #fee090 !important;
+//   width:160px;
+}
+
+.gop {
+  fill: #a70518 !important;
+  color: #a70518 !important;
+  border-bottom: 3px solid #a70518 !important;
+//   width:317px;
+}
+
+.dfl {
+  fill: #3580A3 !important;
+  color: #3580A3 !important;
+  border-bottom: 3px solid #3580A3 !important;
+//   width:195px;
+}
+
+.topbar .ind {
+width:60px;
+}
+
+.topbar .gop {
+width:115px;
+}
+
+.topbar .dfl {
+width:102px;
+}
+
+.topbar {
+  margin-left:60px;
+ margin-top:30px;
+  width:100%;
+  font-size:0.8em;
+  display:none;
+}
+
+.topbar div {
+display:inline-block;
+}
+
+#key {
+  display:block;
+}
 
   #wrapper {
       width:800px;
       margin-left:auto;
       margin-right:auto;
   }
+
+  .adjacent {
+  width:48%;
+  display:inline-block;
+  vertical-align: top;
+  }
   
   .slide {
-    width:48%;
-    display:inline-block;
-    vertical-align: top;
+
+
 
   .chart {
       height:250px;
+  }
+
+  .bigchart {
+    width:100%;
   }
 
   .chatter {
@@ -113,51 +170,19 @@ div .byline a {
     font-size:1.2em;
     font-family: Consolas,"courier new" !important;
   }
+
+  .uparrow {
+    color:#5BBF48;
+  }
+  
+  .downarrow {
+    color:#E07242;
+  }
+  
+  .sidearrow {
+    color:#636363;
+  }
     
-  .ind {
-      fill: #fee090 !important;
-      color: #fee090 !important;
-      border-bottom: 3px solid #fee090 !important;
-    //   width:160px;
-  }
-
-  .gop {
-      fill: #a70518 !important;
-      color: #a70518 !important;
-      border-bottom: 3px solid #a70518 !important;
-    //   width:317px;
-  }
-
-  .dfl {
-      fill: #3580A3 !important;
-      color: #3580A3 !important;
-      border-bottom: 3px solid #3580A3 !important;
-    //   width:195px;
-  }
-
-  .topbar .ind {
-    width:60px;
-  }
-
-  .topbar .gop {
-    width:115px;
-  }
-
-  .topbar .dfl {
-    width:102px;
-  }
-
-  .topbar {
-      margin-left:60px;
-     margin-top:30px;
-      width:100%;
-      font-size:0.8em;
-  }
-
-  .topbar div {
-    display:inline-block;
-  }
-
   #chartTrend .c3-line {
       opacity:0 !important;
   }
@@ -199,7 +224,7 @@ div .byline a {
     color:#ffffff;
   }
 
-  .chart .c3-line {
+  .chart .c3-line, .bigchart .c3-line  {
       stroke-width: 6px !important;
   }
   
@@ -215,15 +240,6 @@ div .byline a {
           padding-right: 0.5em;
         }
       }
-  
-  .legendary {
-      padding:4px;
-      color: #fff;
-      font-weight:bold;
-      border-radius: 5px;
-      padding: 0 7px;
-      margin-bottom: 3px;
-  }
   
   .map {
       text-align:center;
