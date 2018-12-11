@@ -1148,7 +1148,7 @@ function chartDebt() {
                 tick: {
                     count: 6,
                     values: [0, 500000000, 1000000000, 1500000000, 2000000000],
-                    format: d3.format('$.0s')
+                    format: d3.format('$.2s')
                 }
             },
             x: {
