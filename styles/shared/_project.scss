@@ -147,6 +147,7 @@ display:inline-block;
       display:inline-block;
       width:32%;
       vertical-align:top;
+      margin-left:3px;
     }
     
     .smallchart .chart {
@@ -267,6 +268,12 @@ display:inline-block;
   @media (max-width:500px) {
       #wrapper {
           width:100%;
+      }
+      .smallchart {
+        width:48%;
+      }
+      .label {
+        font-size:0.8em;
       }
   }
   
