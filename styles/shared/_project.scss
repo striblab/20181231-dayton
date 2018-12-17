@@ -140,12 +140,23 @@ display:inline-block;
   display:inline-block;
   vertical-align: top;
   }
+
+
+  #return {
+    text-align:center;
+    color:#aaaaaa;
+  }
+
+  #return:hover {
+    cursor:pointer;
+    opacity:0.8;
+  }
   
   .slide {
 
     .smallchart {
       display:inline-block;
-      width:32%;
+      width:23%;
       vertical-align:top;
       margin-left:3px;
     }
@@ -156,6 +167,15 @@ display:inline-block;
     
     .smallchart .chart .c3-line {
         stroke-width:1px !important;
+    }
+
+    .label {
+      font-size:0.6em;
+    }
+
+    .label:hover {
+      cursor:pointer;
+      opacity:0.8;
     }
   
     .legendary {

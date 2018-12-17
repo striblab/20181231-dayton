@@ -82,7 +82,7 @@ if (selected == "all") {
 
 
 function buildGrid(category,parent,target,label,colorClass,symbol,change,xEnd,yLimit,yFormat,yTicks,linecolor1,linecolor2,linecolor3,data) {
-    $(parent).append('<div class="smallchart xwidth"><div class="label legendary" style="background-color:' + colorScale(change) + ';">' + label + '<div class="stat">' + symbol + '' + d3.format("+.0%")(change) + '</div></div><div class="chart" id="' + target + '"></div></div>');
+    $(parent).append('<div class="smallchart xwidth"><div class="label legendary" subject="' + target + '" style="background-color:' + colorScale(change) + ';">' + label + '<div class="stat">' + symbol + '' + d3.format("+.0%")(change) + '</div></div><div class="chart" id="' + target + '"></div></div>');
 }
 
 function bigChart(category,parent,target,label,colorClass,symbol,change,xEnd,yLimit,yFormat,yTicks,linecolor1,linecolor2,linecolor3,data) {
@@ -94,22 +94,15 @@ function bigChart(category,parent,target,label,colorClass,symbol,change,xEnd,yLi
     };
 
     var chartTrend = c3.generate({
-        bindto: "#" + target,
+        bindto: "#bigchart",
         padding: padding,
         data: {
             x: 'x',
-            // xFormat: '%Y-%m-%d %H:%M:%S',
             columns: [
                 ['x', 1999,2000,2001,2002,2003,2004,2005,2006,2007,2008,2009,2010,2011,2012,2013,2014,2015,2016,2017,2018],
-                // ['Rate',100.4956545,92.80404871,79.66950966,79.59245596,74.20189819,54.17179711,66.22293085,56.95042699,63.470021,50.68743188],
                 data,
             ],
-            type: 'line',
-            labels: {
-                format: {
-                    // 'Rate': d3.format(',.1f')
-                }
-            }
+            type: 'line'
         },
         legend: {
             show: false
@@ -125,7 +118,6 @@ function bigChart(category,parent,target,label,colorClass,symbol,change,xEnd,yLi
             pattern: [linecolor1,linecolor2,linecolor3]
         },
         axis: {
-            // rotated: true,
             y: {
                 max: yLimit,
                 min: 0,
@@ -140,7 +132,6 @@ function bigChart(category,parent,target,label,colorClass,symbol,change,xEnd,yLi
                 }
             },
             x: {
-                // type: 'timeseries',
                 padding: {
                     right: 0,
                     left: 0
@@ -158,7 +149,7 @@ function bigChart(category,parent,target,label,colorClass,symbol,change,xEnd,yLi
               },
           },
           regions: [
-           {axis: 'x', start: 1999, end: 2003, class: 'ind','label':'Ventura', 'vertical': false},
+           {axis: 'x', start: 1999, end: 2003, class: 'ind'},
            {axis: 'x', start: 2003, end: 2011, class: 'gop'},
            {axis: 'x', start: 2011, end: 2018, class: 'dfl'},
          ],
@@ -187,18 +178,11 @@ function smallChart(category,parent,target,label,colorClass,symbol,change,xEnd,y
         padding: padding,
         data: {
             x: 'x',
-            // xFormat: '%Y-%m-%d %H:%M:%S',
             columns: [
                 ['x', 1999,2000,2001,2002,2003,2004,2005,2006,2007,2008,2009,2010,2011,2012,2013,2014,2015,2016,2017,2018],
-                // ['Rate',100.4956545,92.80404871,79.66950966,79.59245596,74.20189819,54.17179711,66.22293085,56.95042699,63.470021,50.68743188],
                 data,
             ],
-            type: 'line',
-            labels: {
-                format: {
-                    // 'Rate': d3.format(',.1f')
-                }
-            }
+            type: 'line'
         },
         legend: {
             show: false
@@ -214,7 +198,6 @@ function smallChart(category,parent,target,label,colorClass,symbol,change,xEnd,y
             pattern: [linecolor1,linecolor2,linecolor3]
         },
         axis: {
-            // rotated: true,
             y: {
                 show: false,
                 max: yLimit,
@@ -230,7 +213,6 @@ function smallChart(category,parent,target,label,colorClass,symbol,change,xEnd,y
                 }
             },
             x: {
-                // type: 'timeseries',
                 show: false,
                 padding: {
                     right: 0,
@@ -249,7 +231,7 @@ function smallChart(category,parent,target,label,colorClass,symbol,change,xEnd,y
               },
           },
           regions: [
-           {axis: 'x', start: 1999, end: 2003, class: 'ind','label':'Ventura', 'vertical': false},
+           {axis: 'x', start: 1999, end: 2003, class: 'ind'},
            {axis: 'x', start: 2003, end: 2011, class: 'gop'},
            {axis: 'x', start: 2011, end: 2018, class: 'dfl'},
          ],
@@ -264,12 +246,36 @@ function smallChart(category,parent,target,label,colorClass,symbol,change,xEnd,y
     });
 }
 
+//populate tiny charts
 for (var i=0; i < data.length; i++) {
     buildGrid(data[i].category,data[i].parent,data[i].target,data[i].label,data[i].colorClass,data[i].symbol,data[i].change,data[i].xEnd,data[i].yLimit,data[i].yFormat,data[i].yTicks,data[i].linecolor1,data[i].linecolor2,data[i].linecolor3,null,data[i].index);
+    smallChart(data[i].category,data[i].parent,data[i].target,data[i].label,data[i].colorClass,data[i].symbol,data[i].change,data[i].xEnd,data[i].yLimit,data[i].yFormat,data[i].yTicks,data[i].linecolor1,data[i].linecolor2,data[i].linecolor3,['Rate', data[i].data1999,data[i].data2000,data[i].data2001,data[i].data2002,data[i].data2003,data[i].data2004,data[i].data2005,data[i].data2006,data[i].data2007,data[i].data2008,data[i].data2009,data[i].data2010,data[i].data2011,data[i].data2012,data[i].data2013,data[i].data2014,data[i].data2015,data[i].data2016,data[i].data2017,data[i].data2018],data[i].index);
 
-    if (data[i].category != "budget") {
-        smallChart(data[i].category,data[i].parent,data[i].target,data[i].label,data[i].colorClass,data[i].symbol,data[i].change,data[i].xEnd,data[i].yLimit,data[i].yFormat,data[i].yTicks,data[i].linecolor1,data[i].linecolor2,data[i].linecolor3,['Rate', data[i].data1999,data[i].data2000,data[i].data2001,data[i].data2002,data[i].data2003,data[i].data2004,data[i].data2005,data[i].data2006,data[i].data2007,data[i].data2008,data[i].data2009,data[i].data2010,data[i].data2011,data[i].data2012,data[i].data2013,data[i].data2014,data[i].data2015,data[i].data2016,data[i].data2017,data[i].data2018],data[i].index);
-    } else {
-        bigChart(data[i].category,data[i].parent,data[i].target,data[i].label,data[i].colorClass,data[i].symbol,data[i].change,data[i].xEnd,data[i].yLimit,data[i].yFormat,data[i].yTicks,data[i].linecolor1,data[i].linecolor2,data[i].linecolor3,['Rate', data[i].data1999,data[i].data2000,data[i].data2001,data[i].data2002,data[i].data2003,data[i].data2004,data[i].data2005,data[i].data2006,data[i].data2007,data[i].data2008,data[i].data2009,data[i].data2010,data[i].data2011,data[i].data2012,data[i].data2013,data[i].data2014,data[i].data2015,data[i].data2016,data[i].data2017,data[i].data2018],data[i].index);  
+    if (data[i].target == "metro") {
+        bigChart(data[i].category,data[i].parent,data[i].target,data[i].label,data[i].colorClass,data[i].symbol,data[i].change,data[i].xEnd,data[i].yLimit,data[i].yFormat,data[i].yTicks,data[i].linecolor1,data[i].linecolor2,data[i].linecolor3,['Rate', data[i].data1999,data[i].data2000,data[i].data2001,data[i].data2002,data[i].data2003,data[i].data2004,data[i].data2005,data[i].data2006,data[i].data2007,data[i].data2008,data[i].data2009,data[i].data2010,data[i].data2011,data[i].data2012,data[i].data2013,data[i].data2014,data[i].data2015,data[i].data2016,data[i].data2017,data[i].data2018],data[i].index);
     }
 }
+
+function loadBigChart(target) {
+    for (var i=0; i < data.length; i++) {
+        if (target == data[i].target) {
+            bigChart(data[i].category,data[i].parent,data[i].target,data[i].label,data[i].colorClass,data[i].symbol,data[i].change,data[i].xEnd,data[i].yLimit,data[i].yFormat,data[i].yTicks,data[i].linecolor1,data[i].linecolor2,data[i].linecolor3,['Rate', data[i].data1999,data[i].data2000,data[i].data2001,data[i].data2002,data[i].data2003,data[i].data2004,data[i].data2005,data[i].data2006,data[i].data2007,data[i].data2008,data[i].data2009,data[i].data2010,data[i].data2011,data[i].data2012,data[i].data2013,data[i].data2014,data[i].data2015,data[i].data2016,data[i].data2017,data[i].data2018],data[i].index);
+            break;
+        }
+    }
+}
+
+//load into big chart
+$('.label').on('click', function() {
+    $([document.documentElement, document.body]).animate({
+        scrollTop: $("#rolldown").offset().top
+    }, 1500);
+
+    loadBigChart($(this).attr("subject"));
+});
+
+$('#return').on('click', function() {
+    $([document.documentElement, document.body]).animate({
+        scrollTop: $("#topper").offset().top
+    }, 1500);
+});
