@@ -43,11 +43,11 @@
     window.Bugsnag = { use: function() { }};
     window.FeatureAPI_JS_TipsNavigation = false
   </script><!-- Shared styles --><link href="http://www.startribune.com/vendor/css/startribune.css?d=1542215553976" rel="stylesheet" type="text/css"><!-- Desktop assets -->
-    <link href="http://assets.startribune.com/static/css/screen.css?d=1545079792122" rel="stylesheet" type="text/css">
+    <link href="http://assets.startribune.com/static/css/screen.css?d=1545083178115" rel="stylesheet" type="text/css">
 
-    <script src="http://assets.startribune.com/static/vendor/jquery/dist/jquery.min.js?d=1545079792122"></script>
-    <script src="http://assets.startribune.com/static/min/header.min.js?d=1545079792122"></script>
-    <script src="http://assets.startribune.com/static/min/footer.min.js?d=1545079792122"></script><!-- Shared scripts --><script src="http://www.startribune.com/vendor/js/shims.js?d=1545079792122"></script><!-- <script src="http://www.startribune.com/vendor/js/bugsnag.js?d=1542215553976"></script> --><script src="http://www.startribune.com/vendor/js/startribune.js?d=1545079792122"></script>
+    <script src="http://assets.startribune.com/static/vendor/jquery/dist/jquery.min.js?d=1545083178115"></script>
+    <script src="http://assets.startribune.com/static/min/header.min.js?d=1545083178115"></script>
+    <script src="http://assets.startribune.com/static/min/footer.min.js?d=1545083178115"></script><!-- Shared scripts --><script src="http://www.startribune.com/vendor/js/shims.js?d=1545083178115"></script><!-- <script src="http://www.startribune.com/vendor/js/bugsnag.js?d=1542215553976"></script> --><script src="http://www.startribune.com/vendor/js/startribune.js?d=1545083178115"></script>
 
 		<style>
 			
@@ -152,8 +152,6 @@
         <p>Qui nostrum exercitationem ullam corporis suscipit laboriosam citizens of distant epochs totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt are creatures of the cosmos Neque porro quisquam est.</p>
 
         <p>Paroxysm of global death radio telescope two ghostly white figures in coveralls and helmets are soflty dancing Orion's sword trillion Euclid.</p>
-
-        <div class="topbar" id="key"><div class="ind">Ventura</div> <div class="gop">Pawlenty</div> <div class="dfl">Dayton</div></div>
     </section>
 
 <div id="wrapper">
@@ -163,6 +161,23 @@
         <h2 class="chartTitle">header things</h2>
         <p>While Minnesota weathered the Great Recession's storm better than most states, various economic woes still marred Pawlenty's governorship. But by the time Dayton took office, Minnesota's economy started to strongly rebound and has continued to grow.</p>
     </section>
+    <div id="topmenu">
+        <div id="selectedThing">▶ Show all</div>
+        <div id="menu">
+            <div class="dropItem" subject="all" id="all">Show all</div>
+            <div class="dropItem" subject="budget">Budget</div>
+            <div class="dropItem" subject="crime">Crime</div>
+            <div class="dropItem" subject="economy">Economics</div>
+            <div class="dropItem" subject="environment">Environment</div>
+            <div class="dropItem" subject="health">Health care</div>
+            <div class="dropItem" subject="college">Higher education</div>
+            <div class="dropItem" subject="infrastructure">Infrastructure</div>
+            <div class="dropItem" subject="k12">K-12 Education</div>
+            <div class="dropItem" subject="other">Other</div>
+            <div class="dropItem" subject="population">Population</div>
+        </div>
+    </div>
+
     <div id="economics" class="slide">
         <div class="chart" id="chartEcon"></div>
     </div>
@@ -173,7 +188,7 @@
         <p id="loadChatter">Some context chatter loaded here</p>
     </section>
     <div class="slide" id="mainchart">
-        <div class="chatter"><div class="label legendary" style="background-color:#857AAA;">State budget total <div class="stat">▲+0%</div></div></div>
+        <div class="topbar" id="key"><div class="ind">Ventura</div> <div class="gop">Pawlenty</div> <div class="dfl">Dayton</div></div>
         <div class="bigchart" id="bigchart"></div>
         <div class="byline">Source: <span id="loadSource">Minnesota House of Representatives Research Office</span> | Graphic by <a href="http://www.startribune.com/jeff-hargarten/274254381/" target="new_">Jeff Hargarten, Star Tribune</a></div>
     </div>
