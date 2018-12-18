@@ -43,11 +43,11 @@
     window.Bugsnag = { use: function() { }};
     window.FeatureAPI_JS_TipsNavigation = false
   </script><!-- Shared styles --><link href="http://www.startribune.com/vendor/css/startribune.css?d=1542215553976" rel="stylesheet" type="text/css"><!-- Desktop assets -->
-    <link href="http://assets.startribune.com/static/css/screen.css?d=1545083178115" rel="stylesheet" type="text/css">
+    <link href="http://assets.startribune.com/static/css/screen.css?d=1545164385940" rel="stylesheet" type="text/css">
 
-    <script src="http://assets.startribune.com/static/vendor/jquery/dist/jquery.min.js?d=1545083178115"></script>
-    <script src="http://assets.startribune.com/static/min/header.min.js?d=1545083178115"></script>
-    <script src="http://assets.startribune.com/static/min/footer.min.js?d=1545083178115"></script><!-- Shared scripts --><script src="http://www.startribune.com/vendor/js/shims.js?d=1545083178115"></script><!-- <script src="http://www.startribune.com/vendor/js/bugsnag.js?d=1542215553976"></script> --><script src="http://www.startribune.com/vendor/js/startribune.js?d=1545083178115"></script>
+    <script src="http://assets.startribune.com/static/vendor/jquery/dist/jquery.min.js?d=1545164385940"></script>
+    <script src="http://assets.startribune.com/static/min/header.min.js?d=1545164385940"></script>
+    <script src="http://assets.startribune.com/static/min/footer.min.js?d=1545164385940"></script><!-- Shared scripts --><script src="http://www.startribune.com/vendor/js/shims.js?d=1545164385940"></script><!-- <script src="http://www.startribune.com/vendor/js/bugsnag.js?d=1542215553976"></script> --><script src="http://www.startribune.com/vendor/js/startribune.js?d=1545164385940"></script>
 
 		<style>
 			
@@ -157,6 +157,18 @@
 <div id="wrapper">
 
     <div class="rule"></div>
+    <section class="container-lg" id="rolldown">
+        <h2 class="chartTitle" id="loadTitle">Plummeting unemployment</h2>
+        <p id="loadChatter">Minnesota's <span class="legend gray5">unemployment</span> rate has declined drastically since the end of the Great Recession in 2009.</p>
+    </section>
+    <div class="slide" id="mainchart">
+        <div class="topbar" id="key"><div class="ind">Ventura</div> <div class="gop">Pawlenty</div> <div class="dfl">Dayton</div></div>
+        <div class="bigchart" id="bigchart"></div>
+        <div class="byline">Source: <span id="loadSource">U.S. Bureau of Labor Statistics</span> | Graphic by <a href="http://www.startribune.com/jeff-hargarten/274254381/" target="new_">Jeff Hargarten, Star Tribune</a></div>
+    </div>
+
+
+    <div class="rule"></div>
     <section class="container-lg" id="topper">
         <h2 class="chartTitle">header things</h2>
         <p>While Minnesota weathered the Great Recession's storm better than most states, various economic woes still marred Pawlenty's governorship. But by the time Dayton took office, Minnesota's economy started to strongly rebound and has continued to grow.</p>
@@ -180,17 +192,6 @@
 
     <div id="economics" class="slide">
         <div class="chart" id="chartEcon"></div>
-    </div>
-
-    <div class="rule"></div>
-    <section class="container-lg" id="rolldown">
-        <h2 class="chartTitle" id="loadTitle">chart title loaded here</h2>
-        <p id="loadChatter">Some context chatter loaded here</p>
-    </section>
-    <div class="slide" id="mainchart">
-        <div class="topbar" id="key"><div class="ind">Ventura</div> <div class="gop">Pawlenty</div> <div class="dfl">Dayton</div></div>
-        <div class="bigchart" id="bigchart"></div>
-        <div class="byline">Source: <span id="loadSource">Minnesota House of Representatives Research Office</span> | Graphic by <a href="http://www.startribune.com/jeff-hargarten/274254381/" target="new_">Jeff Hargarten, Star Tribune</a></div>
     </div>
 
     <div id="return">Return to top</div>

@@ -164,6 +164,15 @@ display:inline-block;
     cursor:pointer;
     opacity:0.8;
   }
+
+  .powerline1, .powerline2 {
+    stroke-dasharray: 5, 5;
+    stroke: #333;
+}
+
+.noline .powerline1, .noline .powerline2, .halfway .powerline1, .zeroed .powerline2 {
+  opacity:0 !important;
+}
   
   .slide {
 
