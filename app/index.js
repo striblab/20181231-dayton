@@ -82,7 +82,7 @@ if (selected == "all") {
 }
 
 function buildGrid(category,parent,target,label,colorClass,symbol,change,xEnd,yMin,yLimit,yFormat,lines,yTick1,yTick2,yTick3,yTick4,yTick5,linecolor1,linecolor2,linecolor3,index) {
-    $(parent).append('<div class="smallchart xwidth ' + category + ' ' + lines + '"><div class="label legendary" subject="' + target + '" style="background-color:' + colorScale(change) + ';">' + label + '<div class="stat">' + symbol + '' + d3.format("+.0%")(change) + '</div></div><div class="chart" id="' + target + '"></div></div>');
+    $(parent).append('<div class="smallchart xwidth ' + category + ' ' + lines + '"><div class="label" subject="' + target + '" style="background-color:' + colorScale(change) + ';">' + label + '<div class="stat">' + symbol + '' + d3.format("+.0%")(change) + '</div></div><div class="chart" id="' + target + '"></div></div>');
 }
 
 function bigChart(category,parent,target,label,colorClass,symbol,change,xEnd,yMin,yLimit,yFormat,lines,yTick1,yTick2,yTick3,yTick4,yTick5,linecolor1,linecolor2,linecolor3,data) {
@@ -109,7 +109,7 @@ function bigChart(category,parent,target,label,colorClass,symbol,change,xEnd,yMi
         },
         point: {
             show: true,
-            r: function(d) { if (d.x == xEnd) { return 2.5;} else { return 0; } }
+            r: function(d) { if (d.x == xEnd) { return 8;} else { return 3; } }
         },
         line: {
             connectNull: true
@@ -278,7 +278,7 @@ for (var i=0; i < data.length; i++) {
     buildGrid(data[i].category,data[i].parent,data[i].target,data[i].label,data[i].colorClass,data[i].symbol,data[i].change,data[i].xEnd,data[i].yMin,data[i].yLimit,data[i].yFormat,data[i].lines,data[i].yTick1,data[i].yTick2,data[i].yTick3,data[i].yTick4,data[i].yTick5,data[i].linecolor1,data[i].linecolor2,data[i].linecolor3,null,data[i].index);
     smallChart(data[i].category,data[i].parent,data[i].target,data[i].label,data[i].colorClass,data[i].symbol,data[i].change,data[i].xEnd,data[i].yMin,data[i].yLimit,data[i].yFormat,data[i].lines,data[i].yTick1,data[i].yTick2,data[i].yTick3,data[i].yTick4,data[i].yTick5,data[i].linecolor1,data[i].linecolor2,data[i].linecolor3,['Rate', data[i].data1999,data[i].data2000,data[i].data2001,data[i].data2002,data[i].data2003,data[i].data2004,data[i].data2005,data[i].data2006,data[i].data2007,data[i].data2008,data[i].data2009,data[i].data2010,data[i].data2011,data[i].data2012,data[i].data2013,data[i].data2014,data[i].data2015,data[i].data2016,data[i].data2017,data[i].data2018],data[i].index);
 
-    if (data[i].target == "unemployment") {
+    if (data[i].target == "budget") {
         bigChart(data[i].category,data[i].parent,data[i].target,data[i].label,data[i].colorClass,data[i].symbol,data[i].change,data[i].xEnd,data[i].yMin,data[i].yLimit,data[i].yFormat,data[i].lines,data[i].yTick1,data[i].yTick2,data[i].yTick3,data[i].yTick4,data[i].yTick5,data[i].linecolor1,data[i].linecolor2,data[i].linecolor3,['Rate', data[i].data1999,data[i].data2000,data[i].data2001,data[i].data2002,data[i].data2003,data[i].data2004,data[i].data2005,data[i].data2006,data[i].data2007,data[i].data2008,data[i].data2009,data[i].data2010,data[i].data2011,data[i].data2012,data[i].data2013,data[i].data2014,data[i].data2015,data[i].data2016,data[i].data2017,data[i].data2018],data[i].index);
     }
 }
