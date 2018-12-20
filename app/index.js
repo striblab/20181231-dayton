@@ -159,7 +159,18 @@ function bigChart(category,parent,target,label,colorClass,symbol,change,xEnd,yMi
                   position: 'start',
                   class: 'powerline2'
               }]
-              }
+              },
+              x: {
+                lines: [{
+                    value: 2007,
+                    text: 'Great Recession begins',
+                    position: 'start'
+                },{
+                  value: 2009,
+                  text: 'Great Recession ends',
+                  position: 'start'
+              }]
+            }
           },
           regions: [
            {axis: 'x', start: 1999, end: 2003, class: 'ind'},

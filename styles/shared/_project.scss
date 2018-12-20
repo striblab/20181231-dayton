@@ -102,9 +102,9 @@ div .byline a {
 //   width:195px;
 }
 
-.dropItem:hover, #selectedThing:hover {
-  cursor:pointer;
-  opacity:0.5;
+.droplabel {
+  text-align:center;
+  margin:10px;
 }
 
 #menu {
@@ -158,6 +158,7 @@ display:inline-block;
   #return {
     text-align:center;
     color:#aaaaaa;
+    margin:20px;
   }
 
   #return:hover {
