@@ -85,21 +85,39 @@ div .byline a {
   fill: #fee090 !important;
   color: #fee090 !important;
   border-bottom: 3px solid #fee090 !important;
-//   width:160px;
 }
 
 .gop {
   fill: #a70518 !important;
   color: #a70518 !important;
   border-bottom: 3px solid #a70518 !important;
-//   width:317px;
 }
 
 .dfl {
   fill: #3580A3 !important;
   color: #3580A3 !important;
   border-bottom: 3px solid #3580A3 !important;
-//   width:195px;
+}
+
+.rec {
+  fill: #333333 !important;
+  color: #999999 !important;
+  border-top: 3px solid #999999 !important;
+}
+
+#bottomLegend {
+  font-size:0.5em;
+  text-align:center;
+  margin-top:-40px;
+  padding-right:15px;
+  margin-left:auto;
+  margin-right:auto;
+}
+
+#bottomLegend .rec {
+  width:73px;
+  margin-left:auto;
+  margin-right:auto;
 }
 
 .droplabel {
@@ -309,6 +327,9 @@ display:inline-block;
       }
       .label {
         font-size:0.8em;
+      }
+      #bottomLegend {
+        display:none;
       }
   }
   

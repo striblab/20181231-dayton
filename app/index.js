@@ -58,8 +58,8 @@ import grid from '../sources/grid.json';
 const data = grid.grid;
 
 const colorScale = d3.scaleLinear()
-.domain([-0.5, -0.25, 0, 0.25, 0.5])
-.range(['#C2421F', '#F2AF80', '#aaaaaa', '#857AAA', '#271D42']);
+.domain([-1, -0.5, -0.25, 0, 0.25, 0.5, 1])
+.range(['#822010', '#C2421F', '#F2AF80', '#aaaaaa', '#857AAA', '#61538F', '#271D42']);
 
 $.urlParam = function(name) {
     var results = new RegExp('[\?&]' + name + '=([^&#]*)').exec(window.location.href);
@@ -109,7 +109,7 @@ function bigChart(category,parent,target,label,colorClass,symbol,change,xEnd,yMi
         },
         point: {
             show: true,
-            r: function(d) { if (d.x == xEnd) { return 8;} else { return 3; } }
+            r: function(d) { if (d.x == xEnd) { return 6;} else { return 3; } }
         },
         line: {
             connectNull: true
@@ -159,22 +159,23 @@ function bigChart(category,parent,target,label,colorClass,symbol,change,xEnd,yMi
                   position: 'start',
                   class: 'powerline2'
               }]
-              },
-              x: {
-                lines: [{
-                    value: 2007,
-                    text: 'Great Recession begins',
-                    position: 'start'
-                },{
-                  value: 2009,
-                  text: 'Great Recession ends',
-                  position: 'start'
-              }]
-            }
+              }
+            //   x: {
+            //     lines: [{
+            //         value: 2007,
+            //         text: 'Great Recession begins',
+            //         position: 'start'
+            //     },{
+            //       value: 2009,
+            //       text: 'Great Recession ends',
+            //       position: 'start'
+            //   }]
+            // }
           },
           regions: [
            {axis: 'x', start: 1999, end: 2003, class: 'ind'},
            {axis: 'x', start: 2003, end: 2011, class: 'gop'},
+           {axis: 'x', start: 2007, end: 2009, class: 'rec'},
            {axis: 'x', start: 2011, end: 2018, class: 'dfl'},
          ],
       tooltip: {
@@ -309,7 +310,7 @@ function loadBigChart(target) {
 //load into big chart
 $('.label').on('click', function() {
     $([document.documentElement, document.body]).animate({
-        scrollTop: $("#rolldown").offset().top
+        scrollTop: $("#topper").offset().top
     }, 1500);
 
     loadBigChart($(this).attr("subject"));
@@ -320,20 +321,3 @@ $('#return').on('click', function() {
         scrollTop: $("#topper").offset().top
     }, 1500);
 });
-
-//dropdown filter
-$('.dropItem').on('click', function() {
-   $(".smallchart").hide();
-   $("." + $(this).attr("subject")).show();
-   $("#menu").slideToggle();
-   $("#selectedThing").html("▶ " + $(this).text());
-});
-
-$("#selectedThing").on("click", function() {
-    $("#menu").slideToggle();
-    
-});
-
-$('#all').on('click', function() {
-    $(".smallchart").show();
- });
