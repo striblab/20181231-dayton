@@ -109,7 +109,7 @@ function bigChart(category,parent,target,label,colorClass,symbol,change,xEnd,yMi
         },
         point: {
             show: true,
-            r: function(d) { if (d.x == xEnd) { return 6;} else { return 3; } }
+            r: function(d) { if (d.x == xEnd) { return 6; } else { return 3; } }
         },
         line: {
             connectNull: true
@@ -187,6 +187,14 @@ function bigChart(category,parent,target,label,colorClass,symbol,change,xEnd,yMi
         }
       }
     });
+
+    var siFormat = d3.format("s");
+      function tickFormat(num){
+        // Replace the confusing G (for Giga) with 
+        // the more recognizable B (for Billion).
+        return siFormat(num).replace("G", "B");
+      }
+
 }
 
 function smallChart(category,parent,target,label,colorClass,symbol,change,xEnd,yMin,yLimit,yFormat,lines,yTick1,yTick2,yTick3,yTick4,yTick5,linecolor1,linecolor2,linecolor3,data) {
