@@ -123,6 +123,7 @@ div .byline a {
 .droplabel {
   text-align:center;
   margin:10px;
+  margin-top:30px;
 }
 
 #menu {
@@ -223,6 +224,21 @@ display:inline-block;
     .label:hover {
       cursor:pointer;
       opacity:0.8;
+    }
+
+    .next {
+      display:inline-block;
+    }
+
+    .expand {
+      width:20px;
+      float:right;
+      margin-top:6px;
+    }
+
+    .expand img {
+      width:15px;
+      
     }
 
   .bigchart {
