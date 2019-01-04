@@ -188,6 +188,10 @@ function bigChart(category,parent,target,label,colorClass,symbol,change,xEnd,yMi
       }
     });
 
+    $("tspan").text(function() {
+        return $(this).text().replace("G","B");
+    });
+    
 }
 
 function smallChart(category,parent,target,label,colorClass,symbol,change,xEnd,yMin,yLimit,yFormat,lines,yTick1,yTick2,yTick3,yTick4,yTick5,linecolor1,linecolor2,linecolor3,data) {
@@ -291,7 +295,7 @@ for (var i=0; i < data.length; i++) {
     buildGrid(data[i].category,data[i].parent,data[i].target,data[i].label,data[i].colorClass,data[i].symbol,data[i].change,data[i].xEnd,data[i].yMin,data[i].yLimit,data[i].yFormat,data[i].lines,data[i].yTick1,data[i].yTick2,data[i].yTick3,data[i].yTick4,data[i].yTick5,data[i].linecolor1,data[i].linecolor2,data[i].linecolor3,null,data[i].index);
     smallChart(data[i].category,data[i].parent,data[i].target,data[i].label,data[i].colorClass,data[i].symbol,data[i].change,data[i].xEnd,data[i].yMin,data[i].yLimit,data[i].yFormat,data[i].lines,data[i].yTick1,data[i].yTick2,data[i].yTick3,data[i].yTick4,data[i].yTick5,data[i].linecolor1,data[i].linecolor2,data[i].linecolor3,['Rate', data[i].data1999,data[i].data2000,data[i].data2001,data[i].data2002,data[i].data2003,data[i].data2004,data[i].data2005,data[i].data2006,data[i].data2007,data[i].data2008,data[i].data2009,data[i].data2010,data[i].data2011,data[i].data2012,data[i].data2013,data[i].data2014,data[i].data2015,data[i].data2016,data[i].data2017,data[i].data2018],data[i].index);
 
-    if (data[i].target == "budget") {
+    if (data[i].target == "expenditures") {
         bigChart(data[i].category,data[i].parent,data[i].target,data[i].label,data[i].colorClass,data[i].symbol,data[i].change,data[i].xEnd,data[i].yMin,data[i].yLimit,data[i].yFormat,data[i].lines,data[i].yTick1,data[i].yTick2,data[i].yTick3,data[i].yTick4,data[i].yTick5,data[i].linecolor1,data[i].linecolor2,data[i].linecolor3,['Rate', data[i].data1999,data[i].data2000,data[i].data2001,data[i].data2002,data[i].data2003,data[i].data2004,data[i].data2005,data[i].data2006,data[i].data2007,data[i].data2008,data[i].data2009,data[i].data2010,data[i].data2011,data[i].data2012,data[i].data2013,data[i].data2014,data[i].data2015,data[i].data2016,data[i].data2017,data[i].data2018],data[i].index);
     }
 }
@@ -317,17 +321,28 @@ function loadBigChart(target) {
 $('.label').on('click', function() {
     loadBigChart($(this).attr("subject"));
     
-    $("#fullChart").appendTo("#popchart" + $(this).parent().parent().parent().attr("index"));
+    $("#fullChart").prependTo("#popchart" + $(this).parent().parent().parent().attr("index"));
 
     $([document.documentElement, document.body]).animate({
         scrollTop: $("#topper").offset().top
-    }, 1500);
+    }, 500);
 });
 
 $('#return').on('click', function() {
-    $("#fullChart").prependTo("#wrapper");
+    $("#fullChart").appendTo("#topThing");
 
     $([document.documentElement, document.body]).animate({
         scrollTop: $("#topper").offset().top
-    }, 1500);
+    }, 500);
+});
+
+//FIX THE DREADED GIGA PROBLEM
+$("tspan").text(function() {
+    return $(this).text().replace("G","B");
+});
+
+$("svg").on("mousemove", function() {
+    $(".tooltip-value").text(function() {
+        return $(this).text().replace("G","B");
+    });
 });

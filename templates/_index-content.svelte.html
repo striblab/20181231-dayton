@@ -1,7 +1,7 @@
 <div class="strib-styles ssa ssb ssc">
   <section class="container-lg elex-header">
       <h5 class="font-popular-light"><span class="font-popular-medium"></span></h5>
-      <h1>Fifty charts showing how Minnesota changed during the Dayton years</h1>
+      <h1>How Minnesota has changed under Mark Dayton's watch, in about 60 charts</h1>
       <p class="byline">By <a href="http://www.startribune.com/jeff-hargarten/274254381/">Jeff Hargarten</a> and <a href="http://www.startribune.com/matt-delong/285386351/">Matt DeLong</a> • <span>Star Tribune</span></p> 
       <div class="article-dateline"><time pubdate datetime="2018-10-25T16:00:00">January 4, 2019</time></div>
     </section>
@@ -9,91 +9,93 @@
     <p></p>
 
     <section class="container-lg leadin">
-        <p>As Mark Dayton nears the end of his tenure as governor, one thing is certain: a lot has happened across Minnesota the past eight years. The job market recovered from a deep recession, but many Minnesotans continue to struggle. The cost of college tuition crept ever higher, while crime rates fell. The state’s budget went from years of deficits to sizeable surpluses.</p>
+        <p>As Mark Dayton nears the end of his tenure as governor, one thing is certain: a lot has happened across Minnesota the past eight years. The job market recovered from a deep recession, but many Minnesotans continue to struggle. The cost of college tuition crept ever higher, while crime rates fell. The number of breweries exploded.</p>
 
-        <p>To be sure, the governor can’t take all of the credit (or the blame) for everything that happens in the state. But as a new administration prepares to take the reins, we dug into the data to measure how Minnesota has changed under Dayton’s watch.</p>
+        <p>To be sure, the governor can’t take all the credit (or blame) for everything that happens in the state. But as a new administration prepares to take the reins, we dug into the data across a wide range of topics to examine the state of the state incoming Gov. Tim Walz is inheriting from his predecessor. Where possible, we included data from previous administrations to see the long term trends as well.</p>
 
-        <p>Explore how Minnesota has transformed past two decades using charts that track several different kinds of metrics below. Click a chart's title to expand it. Percent changes are calculated from 2011 when Dayton took office to the most recent year of available data.</p>
+        <p>Click the title of a chart below to expand it. Percent changes are calculated from 2011 when Dayton took office to the most recent year of available data.</p>
     </section>
 
 <div id="wrapper">
-
+    <div class="rule" ></div>
+    <div id="topThing">
     <div id="fullChart">
-    <div class="rule" id="topper"></div>
+        <div id="topper"></div>
         <section class="container-lg">
-            <h2 class="chartTitle" id="loadTitle">From deficit to surplus</h2>
-            <p id="loadChatter">The Pawlenty years were characterized by significant state government <span class='legendary gray5'>budget forecasts</span> (in billions) transitioned from deficits to surpluses during the Dayton administration. The incoming governor, Tim Walz, will inherit a $1.5 billion budget surplus.</p>
+            <h2 class="chartTitle" id="loadTitle">State and local expenditures</h2>
+            <p id="loadChatter">Minnesota state and local government <span class='legendary gray5'>expenditures</span> (in billions of 2017 dollars) have steadily risen across administrations.</p>
         </section>
         <div class="slide" id="mainchart">
             <div class="topbar" id="key"><div class="ind">Ventura</div> <div class="gop">Pawlenty</div> <div class="dfl">Dayton</div></div>
             <div class="bigchart" id="bigchart"></div>
             <div id="bottomLegend"><div class='rec'>Great Recession</div> </div>
-            <div class="byline">Source: <span id="loadSource">Minnesota Management and Budget | Note: uses November forecasts from each year</span> | Graphic by <a href="http://www.startribune.com/jeff-hargarten/274254381/" target="new_">Jeff Hargarten, Star Tribune</a></div>
+            <div class="byline">Source: <span id="loadSource">U.S. Census Bureau</span> | Graphic by <a href="http://www.startribune.com/jeff-hargarten/274254381/" target="new_">Jeff Hargarten, Star Tribune</a></div>
         </div>
+        <div class="rule"></div>
+    </div>
     </div>
 
-    <div class="rule"></div>
-
+    
     <div id="economics" class="slide">
 
         <div class="categorySection" index="1">
-            <div class="droplabel" subject="budget">Budget</div>
-            <div class="chart" id="chartBudget"></div>
+            <div class="droplabel" subject="budget">Government</div>
             <div class="popchart" id="popchart1"></div>
+            <div class="chart" id="chartBudget"></div>
         </div>
 
         <div class="categorySection" index="2">
             <div class="droplabel" subject="economy">Economics</div>
-            <div class="chart" id="chartEcon"></div>
             <div class="popchart" id="popchart2"></div>
+            <div class="chart" id="chartEcon"></div>
         </div>
 
         <div class="categorySection" index="3">
             <div class="droplabel" subject="health">Health care</div>
-            <div class="chart" id="chartHealthCare"></div>
             <div class="popchart" id="popchart3"></div>
+            <div class="chart" id="chartHealthCare"></div>
         </div>
 
         <div class="categorySection" index="4">
             <div class="droplabel" subject="infrastructure">Infrastructure</div>
-            <div class="chart" id="chartRoads"></div>
             <div class="popchart" id="popchart4"></div>
+            <div class="chart" id="chartRoads"></div>
         </div>
 
         <div class="categorySection" index="5">
             <div class="droplabel" subject="population">Population</div>
-            <div class="chart" id="chartPopulation"></div>
             <div class="popchart" id="popchart5"></div>
+            <div class="chart" id="chartPopulation"></div>
         </div>
 
         <div class="categorySection" index="6">
             <div class="droplabel" subject="crime">Public Safety</div>
-            <div class="chart" id="chartCrime"></div>
             <div class="popchart" id="popchart6"></div>
+            <div class="chart" id="chartCrime"></div>
         </div>
 
         <div class="categorySection" index="7">
             <div class="droplabel" subject="k12">K-12 Education</div>
-            <div class="chart" id="chartK12"></div>
             <div class="popchart" id="popchart7"></div>
+            <div class="chart" id="chartK12"></div>
         </div>
 
         <div class="categorySection" index="8">
             <div class="droplabel" subject="college">Higher education</div>
-            <div class="chart" id="chartCollege"></div>
             <div class="popchart" id="popchart8"></div>
+            <div class="chart" id="chartCollege"></div>
         </div>
 
         <div class="categorySection" index="9">
             <div class="droplabel" subject="environment">Environment</div>
-            <div class="chart" id="chartEnvironment"></div>
             <div class="popchart" id="popchart9"></div>
+            <div class="chart" id="chartEnvironment"></div>
         </div>
 
         <div class="categorySection" index="10">
             <div class="droplabel" subject="other">Other</div>
-            <div class="chart" id="chartOther"></div>
             <div class="popchart" id="popchart10"></div>
+            <div class="chart" id="chartOther"></div>
         </div>
     </div>
 

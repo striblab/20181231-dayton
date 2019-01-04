@@ -30,7 +30,6 @@ $selector-wrapper: '.strib-styles.ssa.ssb.ssc';
   @import 'shared/_project';
 }
 
-  
 .legendary {
   padding:4px;
   color: #fff;
@@ -45,4 +44,8 @@ $selector-wrapper: '.strib-styles.ssa.ssb.ssc';
   fill: #252525;
   background-color: #252525;
   color: #fff;
+}
+
+@media (max-width:600px) {
+
 }
