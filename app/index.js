@@ -192,6 +192,12 @@ function bigChart(category,parent,target,label,colorClass,symbol,change,xEnd,yMi
         return $(this).text().replace("G","B");
     });
     
+    $("svg").on("mousemove", function() {
+        $(".tooltip-value").text(function() {
+            return $(this).text().replace("G","B");
+        });
+        return null;
+    });
 }
 
 function smallChart(category,parent,target,label,colorClass,symbol,change,xEnd,yMin,yLimit,yFormat,lines,yTick1,yTick2,yTick3,yTick4,yTick5,linecolor1,linecolor2,linecolor3,data) {
@@ -320,11 +326,15 @@ function loadBigChart(target) {
 //load into big chart
 $('.label').on('click', function() {
     loadBigChart($(this).attr("subject"));
-    
+
+    $("tspan").text(function() {
+        return $(this).text().replace("G","B");
+    });
+
     $("#fullChart").prependTo("#popchart" + $(this).parent().parent().parent().attr("index"));
 
     $([document.documentElement, document.body]).animate({
-        scrollTop: $("#topper").offset().top
+        scrollTop: $("#topper").offset().top - 30
     }, 500);
 });
 
@@ -332,7 +342,7 @@ $('#return').on('click', function() {
     $("#fullChart").appendTo("#topThing");
 
     $([document.documentElement, document.body]).animate({
-        scrollTop: $("#topper").offset().top
+        scrollTop: $("#topper").offset().top - 30
     }, 500);
 });
 
