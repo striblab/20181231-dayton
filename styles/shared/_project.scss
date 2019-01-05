@@ -243,6 +243,10 @@ display:inline-block;
       
     }
 
+    #mobileKey {
+      display:none;
+    }
+
   .bigchart {
     width:100%;
   }
@@ -337,20 +341,49 @@ display:inline-block;
       max-width:100% !important;
       min-width:100% !important;
  }
+ #key {
+  display:none;
+}
+#mobileKey {
+  display:block !important;
+}
+.gop {
+  border-bottom: 3px solid #ffffff !important;
+}
+.dfl {
+  border-bottom: 3px solid #ffffff !important;
+}
+.ind {
+  border-bottom: 3px solid #ffffff !important;
+}
+.rec {
+  border-top: 3px solid #ffffff !important;
+}
+.topbar .ind {
+  width:auto !important;
+}
+
+.topbar .gop {
+  width:auto !important;
+}
+
+.topbar .dfl {
+  width:auto !important;
+}
   }
 
   @media (max-width:600px) {
-    .topbar .ind {
-      width:63px !important;
-    }
+    // .topbar .ind {
+    //   width:63px !important;
+    // }
   
-    .topbar .gop {
-      width:122px !important;
-    }
+    // .topbar .gop {
+    //   width:122px !important;
+    // }
   
-    .topbar .dfl {
-      width:108px !important;
-    }
+    // .topbar .dfl {
+    //   width:108px !important;
+    // }
   }
 
   ::selection {
